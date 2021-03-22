@@ -2,7 +2,7 @@ import Phone
 import Address
 import Email
 
-# here we need to create for contact details
+# here we need to create a  class for contact details
 class Contact:
     def __init__(self, name, surname="", n=None):
         self.first_name = name
@@ -28,12 +28,12 @@ class Contact:
         if self.surname != "":
             return "{} {}".format(self.first_name, self.surname)
         return self.first_name
-
+# add surname
     def set_surname(self, surname):
         self.surname = surname
-
+# create fuction to  edit surname
     def edit_name(self, new_name):
         self.first_name = new_name
-
+# create fuction to  edit surname 
     def edit_surname(self, new_surname):
         self.surname = new_surname
