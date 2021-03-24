@@ -2,7 +2,7 @@ import Phone
 import Address
 import Email
 
-
+# here we need to create for contact details
 class Contact:
     def __init__(self, name, surname="", n=None):
         self.first_name = name
