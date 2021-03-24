@@ -1,20 +1,24 @@
 #we create the email class
 class Email:
     def __init__(self):
-        self.emailAdresses = []
+        self.emailAddresses = []
 #we create a functiom to get email
+
     def get_emails(self):
-        if len(self.emailAdresses) > 0:
-            emails = "E-mail addresses:\n" + "\n".join(self.emailAdresses)
+        if len(self.emailAddresses) > 0:
+            emails = "E-mail addresses:\n" + "\n".join(self.emailAddresses)
             return emails
         else:
             return ""
-#we cre
+#we created a function to get email
+
     def get_email(self, index=0):
-        return self.emailAdresses[index]
+        return self.emailAddresses[index]
+#another function to add a new email
 
     def add_email(self, email):
-        self.emailAdresses.append(email)
+        self.emailAddresses.append(email)
+#this is a function to modify a given email
 
     def modify_email(self, index, email):
-        self.emailAdresses[index] = email
+        self.emailAddresses[index] = email
