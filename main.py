@@ -1,10 +1,12 @@
-import PhoneBook
+from phonebook import PhoneBook
 import csv
 import time
 
 #here we will add our contanct information as linkedlist
+
+
 def add_all_contact_info(linkedlist):
-    with open("C:\Users\unknown\summative-liplan_elnaam_sugira_team") as csv_file:
+    with open("./100-contacts.csv") as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
