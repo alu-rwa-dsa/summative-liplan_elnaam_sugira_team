@@ -1,4 +1,4 @@
-import Contact
+from contact import Contact
 
 
 class PhoneBook:
@@ -18,12 +18,14 @@ class PhoneBook:
         return fullname
 
     # add new node at the beginning of the sequence
-    def add_contact(self, name, surname=""):
-        print ("fullname" + self.create_fullname(name, surname))
+    def add_contact(self, name, surname, phone, address, email):
         if self.contact_already_exists(self.create_fullname(name, surname)):
             print("Contact already exists. Choose a different name")
             return False
         new_contact = Contact(str(name), str(surname), self.root)
+        new_contact.phone.add_phone(phone, "Home")
+        new_contact.address.add_address(address)
+        new_contact.email_address.add_email(email)
         self.root = new_contact
         self.size += 1
 
@@ -42,7 +44,7 @@ class PhoneBook:
             else:
                 previous_node = this_node
                 this_node = this_node.get_next()
-        print ("trying to delete {}. data not found".format(fullname))
+        print("trying to delete {}. data not found".format(fullname))
         return False  # data not found
 
     def contact_already_exists(self, fullname):

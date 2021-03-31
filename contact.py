@@ -1,8 +1,10 @@
-import Phone
-import Address
-import Email
+from phone import Phone
+from address import Address
+from address_email import Email
 
 # here we need to create for contact details
+
+
 class Contact:
     def __init__(self, name, surname="", n=None):
         self.first_name = name
@@ -18,10 +20,12 @@ class Contact:
     def set_next(self, n):
         self.next_node = n
 
+    def set_first_name(self, name):
+        self.first_name = name
+
     def get_all_contact_details(self):
         contact_info = 'Contact details of {} {}: \n'.format(self.first_name, self.surname)
-        contact_info += self.phone.get_all_phones() + "\n" + self.address.get_all_addresses() + "\n" + \
-                        self.email_address.get_emails()
+        contact_info += self.phone.get_all_phones() + "\n" + self.address.get_all_addresses() + "\n" + self.email_address.get_emails()
         return contact_info
 
     def get_name_and_surname(self):
@@ -37,3 +41,13 @@ class Contact:
 
     def edit_surname(self, new_surname):
         self.surname = new_surname
+
+    def get_address(self):
+        return self.address
+
+    def get_phone(self):
+        return self.phones
+    
+    def get_email(self):
+        return self.email
+
