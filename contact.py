@@ -46,46 +46,7 @@ class Contact:
         return self.address
 
     def get_phone(self):
-        return self.phones
+        return self.phone
 
     def get_email(self):
         return self.email
-
-
-# create contact - names
-p1 = Contact("C", "one")
-# add contacts details - phone, address, email
-p1.address.add_address("address")
-p1.phone.add_phone("phone")
-p1.email.add_email("email")
-# view all details of a contact
-# print(p1.get_all_contact_details())
-# view name
-print(p1.get_name_and_surname())
-# view phones
-print(p1.get_address().get_all_addresses())
-# view email
-print(p1.get_email().get_emails())
-# view address
-print(p1.get_address().get_all_addresses())
-# edit name
-p1.edit_name("contact")
-p1.edit_surname("twoo")
-# edit phone
-p1.phone.modify_phone("32423")
-# edit email
-p1.email.modify_email(0, "rsfsdfs")
-# edit address
-p1.address.modify_address("dsadas")
-
-# add contact to a dictionary
-book1 = {}
-book1["p1"] = p1
-
-# remove contact
-# del book1["p1"]
-
-# view all contacts
-
-for k, v in book1.items():
-    print(v.get_name_and_surname())
