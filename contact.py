@@ -6,8 +6,8 @@ from details.address_email import Email
 
 
 class Contact:
-    def __init__(self, name, surname="", n=None):
-        self.first_name = name
+    def __init__(self, firstname, surname="", n=None):
+        self.first_name = firstname
         self.surname = surname
         self.phone = Phone()
         self.address = Address()
@@ -15,7 +15,7 @@ class Contact:
         self.next_node = n
 
     def get_next(self):
-        return self.next_node
+        return self.nextNode
 
     def set_next(self, n):
         self.next_node = n
