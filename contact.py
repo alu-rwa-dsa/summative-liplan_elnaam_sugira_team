@@ -1,6 +1,6 @@
-from phone import Phone
-from address import Address
-from address_email import Email
+from details.phone import Phone
+from details.address import Address
+from details.address_email import Email
 
 # here we need to create for contact details
 

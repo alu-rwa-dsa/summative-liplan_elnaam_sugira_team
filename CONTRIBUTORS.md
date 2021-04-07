@@ -1,1 +1,0 @@
-Guidelines to communicate how people should contribute to your project.
