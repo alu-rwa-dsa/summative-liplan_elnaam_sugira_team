@@ -40,7 +40,7 @@ Get all phones gives users the ability to get all the present addresses in the p
 
 Get all addresses gives the user the ability to get all the present addresses in the phonebook either for one contact or all contacts.
 The phonebook will have validations for different fields such as names and email addresses to ensure that they meet specific requirements. The phonebook will have a persistent memory and MySQL will be used to provide storage.
-## Motivation (atleast 100 words)
+## Motivation
 Nowadays building an application that helps the community to do a specific task in a convenient way is the most important thing. There are a number of reasons why we want to do this program. After observing the current phonebook apps available, we identified that users would like an easy-to-use and efficient app for phonebooks. We want to learn how to build efficient programs and good performance. We also want to get the knowledge on how to design and build data structures that are efficient. We want to build a phonebook which provides more features. Another thing, we have seen that it is not enough for someone to have only names and phone numbers in the phonebook. We aim to build a phonebook that takes more details about the user. 
 
 ## Technology Used
@@ -65,7 +65,7 @@ Navigate to the root folder of the project and run the main.py file
 
 
 ## Contributing
-Thanks for your interest in contributing! There are many ways to contribute to this project. Get started here [link](CONTRIBUTING).
+Thanks for your interest in contributing! There are many ways to contribute to this project. Open Contributing to read guidelines.
 
 
 ## Bibliography
