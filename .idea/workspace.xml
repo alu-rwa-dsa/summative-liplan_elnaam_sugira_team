@@ -45,7 +45,6 @@
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="summative-liplan_elnaam_sugira_team" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -56,6 +55,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -138,6 +138,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="550" y="119" key="EnvironmentVariablesDialog" timestamp="1618153896909">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="550" y="119" key="EnvironmentVariablesDialog/0.0.1366.728@0.0.1366.728" timestamp="1618153896909" />
     <state width="1345" height="106" key="GridCell.Tab.0.bottom" timestamp="1616591469130">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
