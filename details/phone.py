@@ -26,10 +26,6 @@ class Phone:
     def has_only_one_phone(self, phone_list):
         return len(phone_list) == 1
 
-    def get_user_index(self):
-        index_phone_to_modify = int(input("More than one phone number recorded\nPlease type 1 to modify the ""first, 2 for the second, etc.")) - 1
-        return index_phone_to_modify
-
     def is_valid_user_input(self, phone_list):
         user_index = self.get_user_index()
         if not (len(phone_list) - 1 >= user_index > 0):

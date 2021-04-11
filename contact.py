@@ -5,8 +5,6 @@ from details.address_email import Email
 
 
 # here we need to create for contact details
-
-
 class Contact:
     def __init__(self, firstname, surname="", n=None):
         self.first_name = firstname
@@ -40,10 +38,6 @@ class Contact:
 
     def edit_name(self, new_name):
         self.first_name = new_name
-      
-
-
-
 
     def edit_surname(self, new_surname):
         self.surname = new_surname
