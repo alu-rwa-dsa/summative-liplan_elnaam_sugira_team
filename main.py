@@ -15,31 +15,30 @@ mybook = {}
 print()
 print("Welcome to the main menu")
 
-<<<<<<< HEAD
-#we check if th value entered is a string and not numbere
-=======
 
-# validation methods
->>>>>>> cef9a7d8a37253de27fa94562c12c17eabcea7cd
+# we check if th value entered is a string and not number
 def validatename(value):
     if len(value) < 2 or value.isalpha() is False:
         return False
     return True
 
-#we check if the phone value entered is valid by checking if it has 10 digits
+
+# we check if the phone value entered is valid by checking if it has 10 digits
 def validatePhone(value):
     if len(value) != 10:
         return False
     return True
-#here we check if the email is valid by looking for '@' in the input
 
+
+# here we check if the email is valid by looking for '@' in the input
 def validateEmail(value):
     exists = "@" in value
     if exists:
         return True
     return False
 
-#we check if the adrress value has more than two characters
+
+# we check if the adrress value has more than two characters
 def validateAddress(value):
     if len(value) < 2:
         return False
