@@ -31,7 +31,7 @@ class Contact:
         return contact_info
 
     def get_name_and_surname(self):
-        if self.surname != "" && self.surname.isalpha() == true:
+        if self.surname != "":
             return "{} {}".format(self.first_name, self.surname)
         return self.first_name
 
@@ -39,10 +39,8 @@ class Contact:
         self.surname = surname
 
     def edit_name(self, new_name):
-        if new_name.isalpha() == tru e:
-            self.first_name = new_name
-        else:
-            print("enter a string")
+        self.first_name = new_name
+      
 
 
 
