@@ -1,7 +1,7 @@
 
 from contact import Contact
 
-# create a phonebook
+
 print()
 print("""Hello and welcome, lets create a phonebook for you!
 Lets first get your details""")
@@ -10,11 +10,17 @@ username = input("Whats your name : ")
 print()
 print("Welcome " + username)
 
+# create a phonebook
 mybook = {}
 print()
 print("Welcome to the main menu")
 
+<<<<<<< HEAD
 #we check if th value entered is a string and not numbere
+=======
+
+# validation methods
+>>>>>>> cef9a7d8a37253de27fa94562c12c17eabcea7cd
 def validatename(value):
     if len(value) < 2 or value.isalpha() is False:
         return False
@@ -40,6 +46,7 @@ def validateAddress(value):
     return True
 
 
+# main loop - program
 while True:
     print()
     print("MAIN MENU: \n(1) -> Add Contact (2) -> Modify Contact (3) -> Delete a contact (4) -> Search Contact (5) -> View all contacts (q) -> Quit")
@@ -86,18 +93,21 @@ while True:
                 continue
             break
 
+        # create the contact
         p = Contact(nm, snm)
         p.phone.add_phone(phn)
         p.email.add_email(eml)
         p.address.add_address(addr)
         mybook[nm] = p
+        # Show details
         print(p.get_all_contact_details())
     elif action == "2":
         # choose contact
         print()
         while True:
             try:
-                toModifyName = input("Enter name of contact to modify : ").lower()
+                toModifyName = input(
+                    "Enter name of contact to modify : ").lower()
                 toModifyContact = mybook[toModifyName]
             except KeyError:
                 print("No result, try a different name")
@@ -120,7 +130,8 @@ while True:
             while True:
                 nSnm = input("Enter new surname : ")
                 if validatename(nSnm) is False:
-                    print("Surname should be atleast 2 characters long and not integers")
+                    print(
+                        "Surname should be atleast 2 characters long and not integers")
                     print()
                     continue
                 toModifyContact.edit_surname(nSnm)
@@ -164,7 +175,8 @@ while True:
     elif action == "3":
         while True:
             try:
-                toDeleteName = input("Enter name of contact to delete : ").lower()
+                toDeleteName = input(
+                    "Enter name of contact to delete : ").lower()
                 del mybook[toDeleteName]
                 print("Contact deleted")
                 break
