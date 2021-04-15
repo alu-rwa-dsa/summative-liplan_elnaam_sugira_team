@@ -1,3 +1,5 @@
+import unittest
+
 
 class Email:
     def __init__(self):
@@ -19,3 +21,16 @@ class Email:
 
     def modify_email(self, index, email):
         self.emailAddresses[index] = email
+
+
+class testEmail(unittest.TestCase):
+    # functions
+    def testadd(self):
+        email = Email()
+        email.add_email("test@mail")
+        self.assertEqual(email.get_email(0), "test@mail")
+    # more functions
+
+
+if __name__ == "__main__":
+    unittest.main()
