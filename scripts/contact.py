@@ -7,7 +7,7 @@ import unittest
 
 # here we need to create for contact details
 class Contact:
-    def __init__(self, firstname, surname="", n=None):
+    def __init__(self, firstname, surname, n=None):
         self.first_name = firstname
         self.surname = surname
         self.phone = Phone()
@@ -15,63 +15,91 @@ class Contact:
         self.email = Email()
         self.next_node = n
 
+    # Time Complexity :
+    # Space Complexity : 
+    # Auxiliary Space :
     def get_next(self):
         return self.nextNode
 
+    # Time Complexity :
+    # Space Complexity : 
+    # Auxiliary Space :
     def set_next(self, n):
         self.next_node = n
 
     def set_first_name(self, name):
         self.first_name = name
 
+    # Time Complexity :
+    # Space Complexity : 
+    # Auxiliary Space :
     def get_all_contact_details(self):
-        contact_info = 'Contact details of {} {}: \n'.format(self.first_name, self.surname)
-        contact_info += self.phone.get_all_phones() + "\n" + self.address.get_all_addresses() + "\n" + self.email.get_emails() + "\n"
-        return contact_info
+        contact_details = 'Contact details of {} {}: \n'.format(self.first_name, self.surname).upper()
+        contact_details += "Phones: " + self.phone.get_all_phones() + "\n" + "Addresses: " + self.address.get_all_addresses() + "\n" + "Emails: " + self.email.get_emails() + "\n"
+        return contact_details
 
+    # Time Complexity :
+    # Space Complexity : 
+    # Auxiliary Space :
     def get_name_and_surname(self):
         if self.surname != "":
             return "{} {}".format(self.first_name, self.surname)
         return self.first_name
 
+    # Time Complexity :
+    # Space Complexity : 
+    # Auxiliary Space :
     def set_surname(self, surname):
         self.surname = surname
 
+    # Time Complexity :
+    # Space Complexity : 
+    # Auxiliary Space :
     def edit_name(self, new_name):
         self.first_name = new_name
 
+    # Time Complexity :
+    # Space Complexity : 
+    # Auxiliary Space :
     def edit_surname(self, new_surname):
         self.surname = new_surname
 
+    # Time Complexity :
+    # Space Complexity : 
+    # Auxiliary Space :
     def get_address(self):
         return self.address
 
+    # Time Complexity :
+    # Space Complexity : 
+    # Auxiliary Space :
     def get_phone(self):
         return self.phone
 
+    # Time Complexity :
+    # Space Complexity : 
+    # Auxiliary Space :
     def get_email(self):
         return self.email
-
-# from contact import Contact
 
 
 class testContact(unittest.TestCase):
     # test set details - name, sname, phone, address and email
     # test first name
     def testName(self):
-        testContact = Contact("Name")
+        testContact = Contact("Name", "Second")
         self.assertEqual(testContact.first_name, "Name")
 
     def testNameWrong(self):
-        testContact = Contact("Name")
+        testContact = Contact("Name", "Second")
         self.assertNotEqual(testContact.first_name, "James")
     
     def testNameString(self):
-        testContact = Contact("Name")
+        testContact = Contact("Name", "Second")
         self.assertTrue(isinstance(testContact.first_name, str))
     
     def testNameWrong(self):
-        testContact = Contact("Name")
+        testContact = Contact("Name", "Second")
         self.assertIsNotNone(testContact.first_name)
 
     # test surname
@@ -95,17 +123,17 @@ class testContact(unittest.TestCase):
     def testPhone(self):
         testContact = Contact("Name", "second")
         testContact.phone.add_phone("1234567890")
-        self.assertEqual(testContact.get_phone().get_phone("Mobile")[0], "1234567890")
+        self.assertEqual(testContact.get_phone().get_phone(), "1234567890")
     
     def testWrongPhone(self):
         testContact = Contact("Name", "second")
         testContact.phone.add_phone("1234567890")
-        self.assertNotEqual(testContact.get_phone().get_phone("Mobile")[0], "9")
+        self.assertNotEqual(testContact.get_phone().get_phone(), "9")
     
     def testNonePhone(self):
         testContact = Contact("Name", "second")
         testContact.phone.add_phone("1234567890")
-        self.assertIsNotNone(testContact.get_phone().get_phone("Mobile")[0])
+        self.assertIsNotNone(testContact.get_phone().get_phone())
     
     # test phone
     def testAddress(self):
@@ -149,7 +177,7 @@ class testContact(unittest.TestCase):
         testContact = Contact("Name", "second")
         testContact.phone.add_phone("10")
         testContact.phone.modify_phone("01")
-        self.assertEqual(testContact.phone.get_phone("Mobile")[0], "01")
+        self.assertEqual(testContact.phone.get_phone(), "01")
 
 
 if __name__ == "__main__":
