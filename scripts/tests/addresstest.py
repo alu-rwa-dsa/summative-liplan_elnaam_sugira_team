@@ -1,4 +1,5 @@
-from ..details.address import Address
+from scripts.details.address import Address
+
 
 if __name__ == "__main__":
-    print("Hello World!")
+    print("Hello!")
