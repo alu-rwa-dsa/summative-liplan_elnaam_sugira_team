@@ -7,22 +7,13 @@ class Phone:
         self.phone = []
 
     # retrieve a phone
-    # Time Complexity :
-    # Space Complexity :
-    # Auxiliary Space :
     def get_phone(self, index=0):
         return self.phone[index]
 
-    # add a phone - default is Mobile
-    # Time Complexity :
-    # Space Complexity :
-    # Auxiliary Space :
+    # add a phone
     def add_phone(self, phone):
         self.phone.append(phone)
 
-    # Time Complexity :
-    # Space Complexity :
-    # Auxiliary Space :
     def modify_phone(self, phone, index=0):
         self.phone[index] = phone
 
