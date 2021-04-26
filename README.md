@@ -257,8 +257,7 @@ The phone, email, and address are lists that hold multiple elements of the detai
 
 
 ## How to Setup/Run
-Console/CLI - Navigate to the scripts folder of the project and run the mainCLI.py file
-GUI - Navigate to the scripts folder of the project and run the mainGUI.py file
+Navigate to the scripts folder of the project and run the mainGUI.py file
 
 
 ## Contributing
