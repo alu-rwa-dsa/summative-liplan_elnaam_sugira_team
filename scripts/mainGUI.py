@@ -6,11 +6,7 @@ from tkinter import font
 from tkinter.constants import E, END, LEFT, TOP, BOTTOM, RIGHT, W, Y
 from contact import Contact
 from tkinter.font import Font
-# mysql://
-# b7c1f87fd3c12d
-# 8480f5d9@
-# #us-cdbr-east-03.cleardb.com/
-# #heroku_8837d61ef32d131?reconnect=true
+from tkinter import messagebox
 
 
 class PhoneBook(tk.Tk):
@@ -25,7 +21,7 @@ class PhoneBook(tk.Tk):
         self.title('Phone Book')
         # self.resizable(0, 0)
         self.geometry('900x700')
-        self['bg'] = 'sky blue'
+        self['bg'] = 'black'
 
         self.v = ttk.Scrollbar(self)
         self.v.pack(side=RIGHT, fill=Y)
@@ -34,10 +30,10 @@ class PhoneBook(tk.Tk):
         self.style = ttk.Style(self)
         self.style.configure(
             'TLabel',
-            background='sky blue',
-            foreground='blue')
+            background='black',
+            foreground='#572780')
         self.style.configure('W.TButton', font=(
-            'Arial', 15, 'underline'), foreground='Green')
+            'Arial', 15), foreground='black', background="#572780")
 
         # label
         self.welcome = ttk.Label(
@@ -47,51 +43,46 @@ class PhoneBook(tk.Tk):
         self.label = tk.Text(
             self, font=self.contactsLabels, foreground="white")
 
-        # self.label = ttk.Label(self, font=self.contactsLabels)#
-
         self.name = ttk.Label(self, text="Name", font=self.labels)
-        self.name.pack()
+
+        # vname = self.register(self.validatename)
+        # vphone = self.register(self.validatePhone)
+        # vemail = self.register(self.validateEmail)
+        # vaddr = self.register(self.validateAddress)
+        
         self.ename = ttk.Entry(self, width=30)
-        self.ename.pack()
-
+        # self.ename.config(validate="focusout", validatecommand=(vname, "%P"))
+        
         self.sname = ttk.Label(self, text="Surname", font=self.labels)
-        self.sname.pack()
+        
         self.esname = ttk.Entry(self, width=30)
-        self.esname.pack()
-
+        
         self.phne = ttk.Label(self, text="Phone", font=self.labels)
-        self.phne.pack()
+        
         self.ephne = ttk.Entry(self, width=30)
-        self.ephne.pack()
-
+        
         self.email = ttk.Label(self, text="Email", font=self.labels)
-        self.email.pack()
+        
         self.eemail = ttk.Entry(self, width=30)
-        self.eemail.pack()
-
+        
         self.addr = ttk.Label(self, text="Address", font=self.labels)
-        self.addr.pack()
+        
         self.eaddr = ttk.Entry(self, width=30)
-        self.eaddr.pack()
-
+        
         self.saveAdd = ttk.Button(
             self, text="Save Contact", command=self.clickedSave, style="W.TButton")
-        self.saveAdd.pack(pady=10)
-
+        
         # schedule an update every 1 second
         self.label.after(1000, self.update)
 
         # edit contact
         self.editNamel = ttk.Label(
-            self, text="Search a contact to edit", font=self.labels)
-        self.editNamel.pack()
+            self, text="Search a contact", font=self.labels)
 
         self.editName = ttk.Entry(self, width=30)
-        self.editName.pack(pady=10)
 
         self.searchNa = ttk.Button(
             self, text="Search Contact", command=self.searchN, style="W.TButton")
-        self.searchNa.pack()
 
         self.sNam = ttk.Label(self, font=self.labels)
 
@@ -110,10 +101,6 @@ class PhoneBook(tk.Tk):
 
         self.searchThis = None
 
-        self.allContactsB = ttk.Label(
-            self, text="Contacts List", font=self.labels)
-        self.allContactsB.pack(pady=10)
-
         # database
         try:
             self.connection = mysql.connector.connect(host='us-cdbr-east-03.cleardb.com', database='heroku_8837d61ef32d131', user='b7c1f87fd3c12d', password='8480f5d9')
@@ -123,7 +110,112 @@ class PhoneBook(tk.Tk):
 
         self.ref = 0
 
+        self.btn = ttk.Button(self, text="Delete Contact", command=self.deleteContact, style="W.TButton")
+
+        self.showAdd = ttk.Button(self, text="Add Contact", command=self.showAddC, style="W.TButton")
+        self.showAdd.pack(pady=10)
+        self.showMo = ttk.Button(self, text="Modify or Delete a contact", command=self.showEditC, style="W.TButton")
+        self.showMo.pack(pady=10)
+
+        self.allContactsB = ttk.Label(
+            self, text="Contacts List", font=self.labels)
+        self.allContactsB.pack(pady=10)
+
+        self.goHome = ttk.Button(self, text="Back Home", command=self.goHomeB, style="W.TButton")
+    
+    def goHomeB(self):
+        self.showAdd.pack(pady=10)
+        self.showMo.pack(pady=10)
+        self.allContactsB.pack(pady=10)
+        self.label.pack(padx=10, pady=20, expand=True)
+        
+        self.name.pack_forget()
+        self.ename.pack_forget()
+        self.sname.pack_forget()
+        self.esname.pack_forget()
+        self.phne.pack_forget()
+        self.ephne.pack_forget()
+        self.email.pack_forget()
+        self.eemail.pack_forget()
+        self.addr.pack_forget()
+        self.eaddr.pack_forget()
+        self.saveAdd.pack_forget()
+
+        self.editNamel.pack_forget()
+        self.editName.pack_forget()
+        self.searchNa.pack_forget()
+
+        self.sNam.pack_forget()
+        self.edNameE.pack_forget()
+        self.edSnameE.pack_forget()
+        self.edPhoneE.pack_forget()
+        self.edEmailE.pack_forget()
+        self.edAddressE.pack_forget()
+
+        self.btn.pack_forget()
+        self.saveEdit.pack_forget()
+
+        self.goHome.pack_forget()
+
+    def showEditC(self):
+        self.label.pack_forget()
+        self.allContactsB.pack_forget()
+
+        self.editNamel.pack()
+        self.editName.pack()
+        self.searchNa.pack(pady=10)
+
+        self.showAdd.pack_forget()
+        self.showMo.pack_forget()
+
+        self.goHome.pack(pady=10)
+    
+    def validatename(self, value):
+        if len(value) < 2 or value.isalpha() is False:
+            return False
+        return True
+    
+    def validatePhone(self, value):
+        if len(value) != 10:
+            return False
+        return True
+    
+    def validateEmail(self, value):
+        exists = "@" in value
+        if exists:
+            return True
+        return False
+    
+    def validateAddress(self, value):
+        if len(value) < 2:
+            return False
+        return True
+
+    def showAddC(self):
+        self.allContactsB.pack_forget()
+        self.label.pack_forget()
+
+        self.goHome.pack(pady=10)
+        self.name.pack()
+        self.ename.pack()
+        self.sname.pack()
+        self.esname.pack()
+        self.phne.pack()
+        self.ephne.pack()
+        self.email.pack()
+        self.eemail.pack()
+        self.addr.pack()
+        self.eaddr.pack()
+        self.saveAdd.pack(pady=10)
+
+        self.showAdd.pack_forget()
+        self.showMo.pack_forget()
+
     def searchN(self):
+        self.editNamel.pack_forget()
+        self.editName.pack_forget()
+        self.searchNa.pack_forget()
+
         snm = self.editName.get()
 
         self.searchThis = snm
@@ -136,6 +228,23 @@ class PhoneBook(tk.Tk):
         cursor = self.connection.cursor()
         cursor.execute(sql_select_Query)
         allContacts = cursor.fetchall()
+
+        upTo = len(allContacts)
+        notIn = 0
+        for row in allContacts:
+            if snm != row[1]:
+                notIn += 1
+            if notIn == upTo:
+                messagebox.showerror("Error", "Contact name not available")
+                self.label.pack_forget()
+                self.allContactsB.pack_forget()
+                self.goHome.pack(pady=10)
+                self.editNamel.pack()
+                self.editName.pack()
+                self.searchNa.pack()
+                self.showAdd.pack_forget()
+                self.showMo.pack_forget()
+                return
 
         for row in allContacts:
             if snm == row[1]:
@@ -154,6 +263,7 @@ class PhoneBook(tk.Tk):
 
         self.editName.delete(0, "end")
 
+        self.goHome.pack(pady=10)
         self.sNam.pack(pady=5)
 
         self.edNameE.pack(pady=5)
@@ -162,23 +272,62 @@ class PhoneBook(tk.Tk):
         self.edEmailE.pack(pady=5)
         self.edAddressE.pack(pady=5)
 
+        self.btn.pack(pady=5)
         self.saveEdit.pack(pady=5)
 
         self.label.pack_forget()
         self.allContactsB.pack_forget()
 
         self.newC = False
+    
+    def deleteContact(self):
+        self.goHome.pack_forget()
+        if messagebox.askokcancel("Confirm Delete", "Are you sure you want to delete the contact?"):
+            snm = self.searchThis
+
+            sql_Delete_query = """Delete from contacts where name = %s"""
+
+            self.connection.reconnect()
+            cursor = self.connection.cursor()
+            cursor.execute(sql_Delete_query, (snm,))
+
+            self.edNameE.delete(0, "end")
+            self.edSnameE.delete(0, "end")
+            self.edPhoneE.delete(0, "end")
+            self.edEmailE.delete(0, "end")
+            self.edAddressE.delete(0, "end")
+
+            self.sNam.pack_forget()
+            self.edSnameE.pack_forget()
+            self.edNameE.pack_forget()
+            self.edPhoneE.pack_forget()
+            self.edEmailE.pack_forget()
+            self.edAddressE.pack_forget()
+            self.saveEdit.pack_forget()
+
+            self.btn.pack_forget()
+            messagebox.showinfo("Contact Deleted", "Contact deleted successfully")
+            self.showAdd.pack(pady=10)
+            self.showMo.pack(pady=10)
+            self.allContactsB.pack(pady=10)
+            self.newC = True
+
+            cursor.close()
+            self.connection.close()
 
     def modifyC(self):
+        self.goHome.pack_forget()
+        snm = self.searchThis
         # update db
-        mySql_update_query = """Update contacts set name = %s, surname = %s, phone = %s,  email = %s, address = %s where email = %s"""
+        mySql_update_query = """Update contacts set name = %s, surname = %s, phone = %s,  email = %s, address = %s where name = %s"""
         
         cursor = self.connection.cursor()
-        upD = (self.edNameE.get(), self.edSnameE.get(), self.edPhoneE.get(), self.edEmailE.get(), self.edAddressE.get(), self.edEmailE.get())
+        print("Second name : " + self.edSnameE.get())
+        upD = (self.edNameE.get(), self.edSnameE.get(), self.edPhoneE.get(), self.edEmailE.get(), self.edAddressE.get(), snm)
       
         cursor.execute(mySql_update_query, upD)
-        print("Updated in db")
         self.connection.commit()
+        print("Updated in db")
         cursor.close()
         self.connection.close()
         
@@ -195,6 +344,13 @@ class PhoneBook(tk.Tk):
         self.edEmailE.pack_forget()
         self.edAddressE.pack_forget()
         self.saveEdit.pack_forget()
+        self.btn.pack_forget()
+
+        messagebox.showinfo("Contact Modified", "Contact modified successfully")
+
+        self.showAdd.pack(pady=10)
+        self.showMo.pack(pady=10)
+        self.allContactsB.pack(pady=10)
 
         self.newC = True
 
@@ -211,24 +367,25 @@ class PhoneBook(tk.Tk):
             insertToText = ""
 
             for row in allContacts:
-                insertToText += row[1] + " " + row[2] + " " + row[0] + " " + row[3] + " " + row[4] + "\n"
+                insertToText += row[1] + "  " + row[2] + "  " + row[0] + "  " + row[3] + "  " + row[4] + "\n\n"
             
             self.connection.close()
             cursor.close()
 
             self.label.insert(END, insertToText)
-            self.label.pack(padx=10, pady=10, expand=True)
-            self.label.config(width=60)
+            self.label.pack(padx=10, pady=20, expand=True)
+            self.label.config(width=60, background="#37474f", borderwidth=0)
             self.ref = 1
+            self.goHome.pack_forget()
 
     def update(self):
-        # self.label.configure(text=self.time_string(), foreground="black")
         self.time_string()
         self.v.config(command=self.label.yview)
         self.newC = False
         self.label.after(1000, self.update)
 
     def clickedSave(self):
+        self.goHome.pack_forget()
         n = self.ename.get()
         sm = self.esname.get()
         em = self.eemail.get()
@@ -248,12 +405,13 @@ class PhoneBook(tk.Tk):
             cursor.close()
             self.connection.close()
         except mysql.connector.IntegrityError as err:
-            print("Email already in use")
+            messagebox.showerror("Error", "The email is already in use")
             self.ename.delete(0, "end")
             self.esname.delete(0, "end")
             self.eemail.delete(0, "end")
             self.ephne.delete(0, "end")
             self.eaddr.delete(0, "end")
+            self.goHome.pack(pady=10)
             self.connection.close()
             return
 
@@ -262,6 +420,23 @@ class PhoneBook(tk.Tk):
         self.eemail.delete(0, "end")
         self.ephne.delete(0, "end")
         self.eaddr.delete(0, "end")
+
+        messagebox.showinfo("Contact Saved", "Contact saved successfully")
+
+        self.name.pack_forget()
+        self.ename.pack_forget()
+        self.sname.pack_forget()
+        self.esname.pack_forget()
+        self.phne.pack_forget()
+        self.ephne.pack_forget()
+        self.email.pack_forget()
+        self.eemail.pack_forget()
+        self.addr.pack_forget()
+        self.eaddr.pack_forget()
+        self.saveAdd.pack_forget()
+        self.showAdd.pack(pady=10)
+        self.showMo.pack(pady=10)
+        self.allContactsB.pack(pady=10)
 
         self.newC = True
 

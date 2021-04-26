@@ -17,9 +17,6 @@ print("Welcome to the main menu")
 
 
 # we check if th value entered is a string and not number
-# Time Complexity :
-# Space Complexity :
-# Auxiliary Space :
 def validatename(value):
     if len(value) < 2 or value.isalpha() is False:
         return False

@@ -237,6 +237,23 @@ def get_all_contact_details(self):
 Time complexity = O(1) + O(P) + O(A) + O(E) + O(1) = O(P + A + E)
 Space complexity = O(P + A + E) - space for the array of the phones, addresses and emails
 ## Solution
+A phonebook program is a simple program that simulates a contact book. A typical contacts book is used to hold the names of people and their contact details. Contact details can be as simple as phone numbers only or a range of more information such as email addresses and addresses. Our phonebook program is a complete phonebook which has the following five important information:
+* Name
+* Surname
+* Phone
+* Email
+* Address  
+
+The phone, email, and address are lists that hold multiple elements of the details. The community will benefit from our program in many ways but to mention a few:
+* An all-in-one solution for storing multiple details about contact such as email address and addresses. This beats the traditional phonebook, which has only phone numbers.
+* It is giving the community a chance to add multiple values to phones, emails, and addresses. This provides the user with the convenience of having all the ways of reaching loved ones or colleagues. 
+* Our phonebook program is efficient and reliable. This is enabled by the use of efficient algorithms to save or retrieve values of the contact details. 
+* The program also has a simple and intuitive interface for the user to have an easy time interacting with it. 
+
+## Presentation
+[Slides Link](https://docs.google.com/presentation/d/17E7tnVS-ozu2IlklyHIKeUmIcT3SUrwLBp_qv3rROAA/edit?usp=sharing)
+
+Video - 
 
 
 ## How to Setup/Run
@@ -257,8 +274,8 @@ Thanks for your interest in contributing! There are many ways to contribute to t
 
 * Routledge & CRC Press. (n.d.). A Practical Guide to Data Structures and Algorithms using Java. [online] Available at: https://www.routledge.com/A-Practical-Guide-to-Data-Structures-and-Algorithms-using-Java/Goldman-Goldman/p/book/9781584884552 [Accessed 7 Apr. 2021].
 
-Sundriyal, M. (2020). Overview: Time & Space Complexity. [online] Medium. Available at: https://medium.com/@manishsundriyal/overview-time-space-complexity-f973513b701e [Accessed 25 Apr. 2021].
+* Sundriyal, M. (2020). Overview: Time & Space Complexity. [online] Medium. Available at: https://medium.com/@manishsundriyal/overview-time-space-complexity-f973513b701e [Accessed 25 Apr. 2021].
 ‌
-In Out Code. (2019). Big O: How to Calculate Time and Space Complexity. [online] Available at: https://www.inoutcode.com/concepts/big-o/ [Accessed 25 Apr. 2021].
+* In Out Code. (2019). Big O: How to Calculate Time and Space Complexity. [online] Available at: https://www.inoutcode.com/concepts/big-o/ [Accessed 25 Apr. 2021].
 ‌
 ‌
