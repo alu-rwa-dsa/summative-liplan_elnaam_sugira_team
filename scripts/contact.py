@@ -15,70 +15,43 @@ class Contact:
         self.email = Email()
         self.next_node = n
 
-    # Time Complexity :
-    # Space Complexity : 
-    # Auxiliary Space :
     def get_next(self):
         return self.nextNode
 
-    # Time Complexity :
-    # Space Complexity : 
-    # Auxiliary Space :
     def set_next(self, n):
         self.next_node = n
 
     def set_first_name(self, name):
         self.first_name = name
 
-    # Time Complexity :
-    # Space Complexity : 
-    # Auxiliary Space :
     def get_all_contact_details(self):
-        contact_details = 'Contact details of {} {}: \n'.format(self.first_name, self.surname).upper()
-        contact_details += "Phones: " + self.phone.get_all_phones() + "\n" + "Addresses: " + self.address.get_all_addresses() + "\n" + "Emails: " + self.email.get_emails() + "\n"
+        contact_details = 'Contact details of {} {}: \n'.format(
+            self.first_name, self.surname).upper()
+        contact_details += "Phones: " + self.phone.get_all_phones() + "\n" + "Addresses: " + \
+            self.address.get_all_addresses() + "\n" + "Emails: " + \
+            self.email.get_emails() + "\n"
         return contact_details
 
-    # Time Complexity :
-    # Space Complexity : 
-    # Auxiliary Space :
     def get_name_and_surname(self):
         if self.surname != "":
             return "{} {}".format(self.first_name, self.surname)
         return self.first_name
 
-    # Time Complexity :
-    # Space Complexity : 
-    # Auxiliary Space :
     def set_surname(self, surname):
         self.surname = surname
 
-    # Time Complexity :
-    # Space Complexity : 
-    # Auxiliary Space :
     def edit_name(self, new_name):
         self.first_name = new_name
 
-    # Time Complexity :
-    # Space Complexity : 
-    # Auxiliary Space :
     def edit_surname(self, new_surname):
         self.surname = new_surname
 
-    # Time Complexity :
-    # Space Complexity : 
-    # Auxiliary Space :
     def get_address(self):
         return self.address
 
-    # Time Complexity :
-    # Space Complexity : 
-    # Auxiliary Space :
     def get_phone(self):
         return self.phone
 
-    # Time Complexity :
-    # Space Complexity : 
-    # Auxiliary Space :
     def get_email(self):
         return self.email
 
@@ -93,11 +66,11 @@ class testContact(unittest.TestCase):
     def testNameWrong(self):
         testContact = Contact("Name", "Second")
         self.assertNotEqual(testContact.first_name, "James")
-    
+
     def testNameString(self):
         testContact = Contact("Name", "Second")
         self.assertTrue(isinstance(testContact.first_name, str))
-    
+
     def testNameWrong(self):
         testContact = Contact("Name", "Second")
         self.assertIsNotNone(testContact.first_name)
@@ -110,69 +83,69 @@ class testContact(unittest.TestCase):
     def testSnameWrong(self):
         testContact = Contact("Name", "second")
         self.assertNotEqual(testContact.surname, "James")
-    
+
     def testSnameString(self):
         testContact = Contact("Name", "second")
         self.assertTrue(isinstance(testContact.surname, str))
-    
+
     def testSnameWrong(self):
         testContact = Contact("Name", "second")
         self.assertIsNotNone(testContact.surname)
-    
+
     # test phone
     def testPhone(self):
         testContact = Contact("Name", "second")
         testContact.phone.add_phone("1234567890")
         self.assertEqual(testContact.get_phone().get_phone(), "1234567890")
-    
+
     def testWrongPhone(self):
         testContact = Contact("Name", "second")
         testContact.phone.add_phone("1234567890")
         self.assertNotEqual(testContact.get_phone().get_phone(), "9")
-    
+
     def testNonePhone(self):
         testContact = Contact("Name", "second")
         testContact.phone.add_phone("1234567890")
         self.assertIsNotNone(testContact.get_phone().get_phone())
-    
+
     # test phone
     def testAddress(self):
         testContact = Contact("Name", "second")
         testContact.address.add_address("KF")
         self.assertEqual(testContact.get_address().get_address(), "KF")
-    
+
     def testWrongAddress(self):
         testContact = Contact("Name", "second")
         testContact.address.add_address("KF")
         self.assertNotEqual(testContact.get_address().get_address(), "K")
-    
+
     def testNoneAddress(self):
         testContact = Contact("Name", "second")
         testContact.address.add_address("KF")
         self.assertIsNotNone(testContact.get_address().get_address())
-    
+
     # test email
     def testEmail(self):
         testContact = Contact("Name", "second")
         testContact.email.add_email("ke")
         self.assertEqual(testContact.get_email().get_email(), "ke")
-    
+
     def testWrongEmail(self):
         testContact = Contact("Name", "second")
         testContact.email.add_email("ke")
         self.assertNotEqual(testContact.get_email().get_email(), "k")
-    
+
     def testNoneEmail(self):
         testContact = Contact("Name", "second")
         testContact.email.add_email("ke")
         self.assertIsNotNone(testContact.get_email().get_email())
-    
+
     # test edits
     def testEditName(self):
         testContact = Contact("Name", "second")
         testContact.edit_name("new")
         self.assertEqual(testContact.first_name, "new")
-    
+
     def testEditPhone(self):
         testContact = Contact("Name", "second")
         testContact.phone.add_phone("10")

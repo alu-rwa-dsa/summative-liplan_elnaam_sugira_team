@@ -28,13 +28,13 @@ class testAddress(unittest.TestCase):
         testAddresses = Address()
         testAddresses.add_address("KHHE")
         self.assertEqual(testAddresses.get_address(), "KHHE")
-    
+
     # wrong address
     def testAddAddressWrong(self):
         testAddresses = Address()
         testAddresses.add_address("KHHE")
         self.assertNotEqual(testAddresses.get_address(), "ke")
-    
+
     # returns correct address type
     def testAddAddressGet(self):
         testAddresses = Address()
@@ -46,21 +46,21 @@ class testAddress(unittest.TestCase):
         testAddresses = Address()
         testAddresses.add_address("KHHE")
         self.assertNotIsInstance(testAddresses.get_address(), int)
-    
+
     # get all addresses
     def testAddAddress(self):
         testAddresses = Address()
         testAddresses.add_address("KHHE")
         testAddresses.add_address("another")
         self.assertEqual(testAddresses.get_all_addresses(), "KHHE another")
-    
+
     # modify contact
     def testAddAddressModify(self):
         testAddresses = Address()
         testAddresses.add_address("KHHE")
         testAddresses.modify_address("new")
         self.assertEqual(testAddresses.get_address(), "new")
-    
+
 
 if __name__ == "__main__":
     unittest.main()

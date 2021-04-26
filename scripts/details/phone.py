@@ -30,32 +30,32 @@ class testPhone(unittest.TestCase):
         phone = Phone()
         phone.add_phone("1234567890")
         self.assertEqual(phone.get_phone(), "1234567890")
-    
+
     # saved phone not wrong
     def testaddWrong(self):
         phone = Phone()
         phone.add_phone("1234567890")
         self.assertNotEqual(phone.get_phone(), "")
-    
+
     # correct instance saved
     def testPhoneType(self):
         phone = Phone()
         phone.add_phone("1234567890")
         self.assertIsInstance(phone.get_phone(), str)
-    
+
     # saved type is not int
     def testPhoneTypeWrong(self):
         phone = Phone()
         phone.add_phone("1234567890")
         self.assertNotIsInstance(phone.get_phone(), int)
-    
+
     # modify works correctly
     def testPhoneModify(self):
         phone = Phone()
         phone.add_phone("1234567890")
         phone.modify_phone("0987654321")
         self.assertEqual(phone.get_phone(), "0987654321")
-    
+
     # returns all phones
     def testPhoneAll(self):
         phone = Phone()
@@ -66,4 +66,3 @@ class testPhone(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -290,6 +290,7 @@ class PhoneBook(tk.Tk):
             self.connection.reconnect()
             cursor = self.connection.cursor()
             cursor.execute(sql_Delete_query, (snm,))
+            self.connection.commit()
 
             self.edNameE.delete(0, "end")
             self.edSnameE.delete(0, "end")

@@ -27,32 +27,32 @@ class testEmail(unittest.TestCase):
         email = Email()
         email.add_email("test@mail")
         self.assertEqual(email.get_email(), "test@mail")
-    
+
     # saved email not wrong
     def testaddWrong(self):
         email = Email()
         email.add_email("test@mail")
         self.assertNotEqual(email.get_email(), "")
-    
+
     # correct instance saved
     def testEmailType(self):
         email = Email()
         email.add_email("test@mail")
         self.assertIsInstance(email.get_email(), str)
-    
+
     # saved type is not int
     def testEmailTypeWrong(self):
         email = Email()
         email.add_email("test@mail")
         self.assertNotIsInstance(email.get_email(), int)
-    
+
     # modify works correctly
     def testEmailModify(self):
         email = Email()
         email.add_email("test@mail")
         email.modify_email("new@new")
         self.assertEqual(email.get_email(), "new@new")
-    
+
     # returns all emails
     def testEmailAll(self):
         email = Email()

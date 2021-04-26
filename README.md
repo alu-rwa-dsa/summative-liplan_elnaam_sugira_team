@@ -253,7 +253,7 @@ The phone, email, and address are lists that hold multiple elements of the detai
 ## Presentation
 [Slides Link](https://docs.google.com/presentation/d/17E7tnVS-ozu2IlklyHIKeUmIcT3SUrwLBp_qv3rROAA/edit?usp=sharing)
 
-Video - 
+[Video Link](https://drive.google.com/file/d/1tiKLZLsuKHFesTWX48oMnOA36VXV4b8L/view?usp=sharing)
 
 
 ## How to Setup/Run
